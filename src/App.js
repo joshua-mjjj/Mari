@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Landing from 'pages/Landing';
 import About from 'pages/About';
 import Contact from 'pages/Contact';
@@ -17,12 +17,12 @@ import 'assets/styles/custom.css';
 function App() {
     return (
         <Switch>
-            
+            <Route exact path="/" component={Landing} />
             <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/developer" component={Developer} />
             <Route exact path="/gallery" component={Gallery} />
-            <Route exact path="/" component={Landing} />
+            <Redirect from="*" to="/" />
         </Switch>
     );
 }
